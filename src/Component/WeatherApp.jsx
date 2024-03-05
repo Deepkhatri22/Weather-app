@@ -58,8 +58,8 @@ function WeatherApp() {
         }
     };
     return (
-        <div className=" py-5 bg-black h-screen  mx-auto">
-            <div className='container rounded-[10%]  shadow-blue-400 shadow-lg bg-transparent h-[95vh] m-auto w-[40vw] pt-10 border-t-2 border-gray-500'>
+        <div className=" py-5 bg-black min-h-screen flex items-center justify-center">
+            <div className='container rounded-[10%] shadow-blue-400 shadow-lg bg-transparent h-auto sm:h-[85vh] md:w-[70vw] lg:w-[50vw] xl:w-[40vw] pt-10 border-t-2 border-gray-500'>
                 <div className="topbar flex justify-center gap-2">
                     <input type="text" name="CityName" id='City' className='cityInput h-12 w-80 rounded-[40px] pl-3 text-xl pb-1 hover:border-2 hover:border-blue-600' placeholder='Enter City Name' />
                     <div onClick={() => { search() }} className='searchIcon text-3xl h-12 w-12 items-center bg-white rounded-full cursor-pointer justify-center flex hover:border-2 hover:border-blue-600'><IoSearch /></div>
