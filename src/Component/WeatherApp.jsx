@@ -26,11 +26,18 @@ function WeatherApp() {
         const wind = document.getElementsByClassName("windSpeed");
         const temperature = document.getElementsByClassName("weatherTemp");
         const location = document.getElementsByClassName("weatherLocation");
+        const mint = document.getElementsByClassName("minTemp");
+        const maxt = document.getElementsByClassName("maxTemp");
+        const feel = document.getElementsByClassName("feelsLike");
 
         humidity[0].innerHTML = data.main.humidity + "%";
         wind[0].innerHTML = data.wind.speed + "Km/h";
         temperature[0].innerHTML = Math.floor(data.main.temp) + "°C";
         location[0].innerHTML = data.name;
+        mint[0].innerHTML = "Minimum Temprature : " + Math.floor(data.main.temp_min) + "°C";
+        maxt[0].innerHTML = "Maximum Temprature : " + Math.floor(data.main.temp_max) + "°C";
+        feel[0].innerHTML = Math.floor(data.main.feels_like) + "°C";;
+        
 
         if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
             setWeatherIcon('/clear.png');
@@ -53,7 +60,7 @@ function WeatherApp() {
         else if (data.weather[0].icon === "13d" || data.weather[0].icon === "13n") {
             setWeatherIcon('/snow.png');
         }
-        else{
+        else {
             setWeatherIcon('/clear.png')
         }
     };
@@ -64,10 +71,13 @@ function WeatherApp() {
                     <input type="text" name="CityName" id='City' className='cityInput h-12 w-80 rounded-[40px] pl-3 text-xl pb-1 hover:border-2 hover:border-blue-600' placeholder='Enter City Name' />
                     <div onClick={() => { search() }} className='searchIcon text-3xl h-12 w-12 items-center bg-white rounded-full cursor-pointer justify-center flex hover:border-2 hover:border-blue-600'><IoSearch /></div>
                 </div>
-                <div className="weatherImage justify-center items-center mt-5 flex">
+                <div className="weatherImage justify-center items-center flex">
                     <img src={weatherIcon} alt="Weather Icon" />
                 </div>
-                <div className="weatherTemp flex justify-center items-center font-bold text-white text-[55px]">00 °C</div>
+                <div className="minTemp flex justify-center items-center font-bold text-white text-[15px]">Minimum Temprature: 00 °C</div>
+                    <div className="weatherTemp flex justify-center items-center font-bold text-white text-[55px]">00 °C</div>
+                <div className="maxTemp flex justify-center items-center font-bold text-white text-[15px]">Maximum Temprature: 00 °C </div>
+                
                 <div className="weatherLocation flex justify-center font-bold text-white text-[25px]">City Name</div>
                 <div className="dataContainer flex mt-16 gap-20 justify-center">
                     <div className="elememt flex gap-5 justify-cente">
@@ -75,6 +85,12 @@ function WeatherApp() {
                         <div className="data flex flex-col justify-center items-center">
                             <div className="huminityPer text-2xl text-white font-bold">00%</div>
                             <div className="text-white  ">Huminity</div>
+                        </div>
+                    </div>
+                    <div className="elememt flex gap-5 justify-center ">
+                        <div className="data flex flex-col justify-center items-center">
+                            <div className="feelsLike text-2xl text-white font-bold">00 °C</div>
+                            <div className="text-white">Feels like</div>
                         </div>
                     </div>
                     <div className="elememt flex gap-5 justify-center ">
