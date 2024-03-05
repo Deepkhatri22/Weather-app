@@ -36,8 +36,8 @@ function WeatherApp() {
         location[0].innerHTML = data.name;
         mint[0].innerHTML = "Minimum Temprature : " + Math.floor(data.main.temp_min) + "°C";
         maxt[0].innerHTML = "Maximum Temprature : " + Math.floor(data.main.temp_max) + "°C";
-        feel[0].innerHTML = Math.floor(data.main.feels_like) + "°C";;
-        
+        feel[0].innerHTML = "Feels like : " + Math.floor(data.main.feels_like) + "°C";;
+
 
         if (data.weather[0].icon === "01d" || data.weather[0].icon === "01n") {
             setWeatherIcon('/clear.png');
@@ -75,22 +75,18 @@ function WeatherApp() {
                     <img src={weatherIcon} alt="Weather Icon" />
                 </div>
                 <div className="minTemp flex justify-center items-center font-bold text-white text-[15px]">Minimum Temprature: 00 °C</div>
-                    <div className="weatherTemp flex justify-center items-center font-bold text-white text-[55px]">00 °C</div>
+                <div className="weatherTemp flex justify-center items-center font-bold text-white text-[55px]">00 °C</div>
                 <div className="maxTemp flex justify-center items-center font-bold text-white text-[15px]">Maximum Temprature: 00 °C </div>
-                
-                <div className="weatherLocation flex justify-center font-bold text-white text-[25px]">City Name</div>
-                <div className="dataContainer flex mt-16 gap-20 justify-center">
+                <div className="feelsLike flex justify-center font-bold text-white text-[15px]">Feels Like</div>
+
+
+                <div className="weatherLocation flex justify-center font-bold pt-2 text-white text-[30px]">City Name</div>
+                <div className="dataContainer flex mt-8 gap-20 justify-center">
                     <div className="elememt flex gap-5 justify-cente">
                         <img src={'/humidity.png'} alt="icon" className='icon object-contain' />
                         <div className="data flex flex-col justify-center items-center">
                             <div className="huminityPer text-2xl text-white font-bold">00%</div>
                             <div className="text-white  ">Huminity</div>
-                        </div>
-                    </div>
-                    <div className="elememt flex gap-5 justify-center ">
-                        <div className="data flex flex-col justify-center items-center">
-                            <div className="feelsLike text-2xl text-white font-bold">00 °C</div>
-                            <div className="text-white">Feels like</div>
                         </div>
                     </div>
                     <div className="elememt flex gap-5 justify-center ">
